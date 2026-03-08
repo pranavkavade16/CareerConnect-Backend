@@ -23,10 +23,10 @@ const jobSchema = new mongoose.Schema(
     jobType: {
       type: String,
       enum: [
-        "Full-time(On-site)",
-        "Part-time(On-site)",
-        "Full-time(Remote)",
-        "Part-time(Remote)",
+        "Full-time (On-site)",
+        "Part-time (On-site)",
+        "Full-time (Remote)",
+        "Part-time (Remote)",
       ],
       default: "Part-time(On-site)",
     },
