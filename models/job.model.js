@@ -14,19 +14,21 @@ const jobSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    locations: [{
-      type: String,
-      required: true,
-    }],
+    locations: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
     jobType: {
       type: String,
       enum: [
-        "Full-time (On-site)",
-        "Part-time (On-site)",
-        "Full-time (Remote)",
-        "Part-time (Remote)",
+        "Full-time(On-site)",
+        "Part-time(On-site)",
+        "Full-time(Remote)",
+        "Part-time(Remote)",
       ],
-      default: "Part-time (On-site)",
+      default: "Part-time(On-site)",
     },
     jobDescription: {
       type: String,
