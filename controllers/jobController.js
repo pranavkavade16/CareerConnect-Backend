@@ -66,12 +66,10 @@ exports.getJobs = async (req, res) => {
 
     res.status(200).json({ jobs });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Failed to fetch the jobs data.",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Failed to fetch the jobs data.",
+      error: error.message,
+    });
   }
 };
 
@@ -83,14 +81,14 @@ exports.deleteJob = async (req, res) => {
       return res.status(400).json({ message: "Invalid JobId" });
     }
 
-    const job = await Task.find(jobId);
+    const job = await Job.findById(jobId);
     if (!job) {
       return res.status(404).json({ message: "Job not found!!" });
     }
 
     const deleteJob = await Job.findByIdAndDelete(jobId);
 
-    res.status(200).json({ message: "Job deleted successfully." });
+    res.status(200).json({ message: "Job deleted successfully.", deleteJob });
   } catch (error) {
     res.status(500).json({ message: "Failed to delete the job" });
   }
